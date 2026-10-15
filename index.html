@@ -10,15 +10,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #16213E;
-    --ink-2: #4A5470;
-    --paper: #F7F7F2;
+    --ink: #12261B;
+    --ink-2: #4B5D52;
+    --paper: #F7F8F2;
     --surface: #FFFFFF;
-    --line: #DAD9CF;
-    --green: #1E7B4B;
+    --line: #D8DCCB;
+    --green: #17703F;
     --gold: #E2A100;
     --gold-ink: #7A5600;
-    --hero-bg: #16213E;
+    --hero-bg: #0F4D2E;
     --display: 'Bricolage Grotesque', 'Public Sans', system-ui, sans-serif;
     --body: 'Public Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
     box-sizing: border-box;
@@ -27,25 +27,25 @@
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --ink: #ECEBE4;
-      --ink-2: #AEB4C6;
-      --paper: #0F1626;
-      --surface: #172037;
-      --line: #2A3552;
+      --ink: #ECF2EA;
+      --ink-2: #AFC0B4;
+      --paper: #0C1A12;
+      --surface: #13261A;
+      --line: #25402F;
       --green: #4CC38A;
       --gold-ink: #F0C04A;
-      --hero-bg: #0A1020;
+      --hero-bg: #08150E;
     }
   }
   :root[data-theme="dark"] {
-    --ink: #ECEBE4;
-    --ink-2: #AEB4C6;
-    --paper: #0F1626;
-    --surface: #172037;
-    --line: #2A3552;
+    --ink: #ECF2EA;
+    --ink-2: #AFC0B4;
+    --paper: #0C1A12;
+    --surface: #13261A;
+    --line: #25402F;
     --green: #4CC38A;
     --gold-ink: #F0C04A;
-    --hero-bg: #0A1020;
+    --hero-bg: #08150E;
   }
 
   *, *::before, *::after { box-sizing: inherit; }
@@ -68,7 +68,7 @@
   /* Bandeau de travail */
   .travail {
     background: var(--gold);
-    color: #16213E;
+    color: #0F2A1B;
     font-size: 0.9rem;
     padding: 0.5rem 1rem;
     text-align: center;
@@ -129,7 +129,7 @@
     letter-spacing: -0.035em;
     margin-bottom: 1.25rem;
   }
-  .hero p.lead { font-size: 1.2rem; max-width: 34rem; color: #CBD0E2; margin-bottom: 1.75rem; }
+  .hero p.lead { font-size: 1.2rem; max-width: 34rem; color: #D2E3D6; margin-bottom: 1.75rem; }
   .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
   .btn {
     display: inline-block;
@@ -138,11 +138,11 @@
     padding: 0.8rem 1.25rem;
     border-radius: 4px;
     background: var(--gold);
-    color: #16213E;
+    color: #0F2A1B;
     border: 2px solid var(--gold);
   }
   .btn:hover { filter: brightness(1.08); }
-  .btn.discret { background: transparent; color: #F7F7F2; border-color: #8892B5; }
+  .btn.discret { background: transparent; color: #F7F7F2; border-color: #8FB59C; }
   .btn.discret:hover { border-color: #F7F7F2; filter: none; }
 
   .bogolan {
@@ -252,7 +252,7 @@
   details.quartier[open] summary::after { content: "\2212"; }
   details.quartier .corps { padding: 0 0 1.25rem; max-width: 40rem; }
 
-  footer.pied { background: var(--hero-bg); color: #CBD0E2; padding: 2.5rem 1rem; font-size: 0.95rem; }
+  footer.pied { background: var(--hero-bg); color: #D2E3D6; padding: 2.5rem 1rem; font-size: 0.95rem; }
   footer.pied strong { color: #F7F7F2; font-family: var(--display); font-size: 1.2rem; }
   footer.pied p { max-width: 38rem; margin: 0.4rem 0 0; }
   .maire{margin:0 0 1.5rem;max-width:20rem}
@@ -266,6 +266,50 @@
   @media(max-width:600px){.budget .barre{grid-template-columns:1fr auto}.budget .barre .piste{grid-column:1/-1;order:3}}
   .budget details{border-top:1px solid var(--line);padding:.5rem 0}
   .budget summary{cursor:pointer;font-weight:600}
+  .actu{border-top:2px solid var(--ink);padding:1rem 0}
+  .actu h3{font-size:1.35rem;margin:.2rem 0 .5rem}
+  .actu time{color:var(--ink-2);font-size:.9rem}
+  /* Finitions premium */
+  ::selection{background:var(--gold);color:#0F2A1B}
+  header.site{background:color-mix(in srgb,var(--paper) 88%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+  .marque::before{content:"";display:inline-block;width:.6rem;height:.6rem;border-radius:50%;background:var(--gold);margin-right:.5rem}
+  nav.principal a{border-radius:6px 6px 0 0;transition:color .2s,border-color .2s,background .2s}
+  nav.principal a:hover{background:color-mix(in srgb,var(--green) 8%,transparent)}
+  .hero{background:radial-gradient(60rem 28rem at 85% -10%,color-mix(in srgb,var(--gold) 24%,transparent),transparent 60%),radial-gradient(40rem 30rem at 0% 110%,rgba(255,255,255,.07),transparent 60%),var(--hero-bg);padding-top:clamp(4rem,12vw,9rem);padding-bottom:clamp(3rem,7vw,5rem)}
+  .hero p.lead{font-size:clamp(1.1rem,2.4vw,1.35rem);max-width:38rem}
+  .btn{border-radius:999px;padding:.85rem 1.6rem;box-shadow:0 6px 18px rgba(0,0,0,.18);transition:transform .2s,box-shadow .2s,filter .2s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.25)}
+  .chiffres{background:var(--surface)}
+  .chiffre{border-left:3px solid var(--gold)}
+  .chiffre strong{color:var(--green);font-size:2.4rem}
+  .section h2::after{content:"";display:block;width:3.5rem;height:4px;border-radius:2px;background:var(--gold);margin-top:.8rem}
+  .service{border-top:1px solid var(--line);position:relative;padding:1.75rem 0}
+  .service::before{content:"";position:absolute;top:-1px;left:0;width:3.5rem;height:3px;background:var(--gold)}
+  .service h3{color:var(--green)}
+  .eco article{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:6px;padding:1.4rem 1.3rem;transition:transform .25s,box-shadow .25s}
+  .eco article:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(15,60,35,.14)}
+  .eco h3{color:var(--green)}
+  .maire{margin-right:12px}
+  .maire img{border-bottom:0;border-radius:6px;box-shadow:12px 12px 0 var(--gold)}
+  .chrono{border-left:2px solid var(--line)}
+  .chrono li{position:relative}
+  .chrono li::before{content:"";position:absolute;left:-8px;top:.4rem;width:14px;height:14px;border-radius:50%;background:var(--gold);border:3px solid var(--paper)}
+  .chrono b{color:var(--green)}
+  .barre .piste{height:12px;border-radius:99px}
+  .barre .piste span{background:linear-gradient(90deg,var(--green),var(--gold));border-radius:99px}
+  details.quartier{transition:background .2s}
+  details.quartier:hover{background:color-mix(in srgb,var(--green) 6%,transparent)}
+  details.quartier summary{padding-left:.5rem;padding-right:.5rem}
+  footer.pied{border-top:5px solid var(--gold);padding-top:3rem}
+  .pied-grille{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));margin-bottom:2rem}
+  .pied-grille p{margin:.4rem 0 0}
+  .pied nav{display:grid;gap:.4rem}
+  .pied a{color:#D2E3D6;text-decoration:none}
+  .pied a:hover{color:var(--gold)}
+  .pied .wrap>p{border-top:1px solid rgba(255,255,255,.18);padding-top:1.25rem;max-width:none;font-size:.9rem}
+  .rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.eco article,.btn{transition:none}}
 </style>
 </head>
 <body>
@@ -274,6 +318,7 @@
   <div class="bar">
     <a class="marque" href="#accueil">Koniakary<small>Commune</small></a>
     <nav class="principal" aria-label="Navigation principale">
+      <a href="#actualites">Actualités</a>
       <a href="#commune">La commune</a>
       <a href="#services">Services publics</a>
       <a href="#budget">Budget</a>
@@ -302,6 +347,14 @@
     <div class="wrap grille" id="chiffres"></div>
   </section>
 
+  <section class="section alt" id="actualites">
+    <div class="wrap">
+      <h2>Actualités</h2>
+      <p class="intro">Les annonces et les événements de la commune.</p>
+      <div id="actus"></div>
+    </div>
+  </section>
+
   <section class="section" id="commune">
     <div class="wrap deux">
       <div>
@@ -316,8 +369,10 @@
           <li><b>1958</b>Koniakary fait partie de l'arrondissement de Ségala.</li>
           <li><b>1999</b>Koniakary devient commune urbaine, avec la décentralisation (loi n° 96-059 du 4 novembre 1996).</li>
         </ul>
-        <h3 class="mini">Patrimoine et traditions</h3>
+        <h3 class="mini">Patrimoine</h3>
         <p>Le tata d'El Hadj Oumar Tall, citadelle de pierre plate à huit tours (6 m de haut, 115 m de long, 107 m de large), a été classé au patrimoine culturel national : le décret a été adopté en Conseil des ministres le 14 novembre 2011.</p>
+        <h3 class="mini">Pratiques culturelles</h3>
+        <p>La Ziara Tidianiste a lieu chaque année avec le concours de l'association ENDAM DJOMBOUGOU. Célébration religieuse organisée depuis 2003, elle mobilise des milliers de fidèles venus de plusieurs régions du pays et de la diaspora.</p>
         <p>Côté traditions, on célèbre le Sobara chez les Bamanans, et le Moukilo et le Dansa chez les Khassonkés (aujourd'hui plus rares). La pêche collective fait aussi partie des pratiques de la commune.</p>
       </div>
       <div>
@@ -371,18 +426,19 @@
 
       <article class="service">
         <div>
-          <h3>Eau, assainissement et énergie</h3>
-          <p>Points d'eau, forages, électricité et solutions solaires.</p>
+          <h3>Centre culturel</h3>
+          <p>Espace dédié aux activités et aux événements culturels de la commune.</p>
         </div>
       </article>
 
       <article class="service">
         <div>
-          <h3>Sécurité</h3>
-          <p>Gendarmerie, protection civile et numéros utiles.</p>
+          <h3>Eau, assainissement et énergie</h3>
+          <p>Points d'eau, forages, électricité et solutions solaires.</p>
         </div>
       </article>
-    </div>
+
+      </div>
   </section>
 
   <section class="section budget" id="budget">
@@ -426,11 +482,11 @@
       <div class="eco">
         <article>
           <h3>Agriculture</h3>
-          <p>Activité principale, pratiquée par tous les habitants. La coopérative des femmes développe le maraîchage.</p>
+          <p>Activité principale, pratiquée par tous les habitants.</p>
         </article>
         <article>
           <h3>Élevage</h3>
-          <p>Pratiqué principalement chez les Peuls.</p>
+          <p>Pratiqué principalement chez les Peuls, mais chaque famille dispose de quelques têtes de bétail domestique.</p>
         </article>
         <article>
           <h3>Artisanat</h3>
@@ -468,7 +524,11 @@
 
 <footer class="pied">
   <div class="wrap">
-    <strong>Commune de Koniakary</strong>
+    <div class="pied-grille">
+      <div><strong>Commune de Koniakary</strong><p>Commune urbaine, cercle de Kayes, Mali</p></div>
+      <nav aria-label="Liens du site"><a href="#actualites">Actualités</a><a href="#commune">La commune</a><a href="#services">Services publics</a><a href="#budget">Budget communal</a><a href="#quartiers">Quartiers</a></nav>
+      <div><strong>Mairie</strong><p>Quartier Djéré<br>Maire : 76 04 03 95<br>Secrétaire général : 76 14 18 65</p></div>
+    </div>
     <p>Copyright © 2026 par Mamoudou Falassa SIDIBE (contribution citoyenne), avec la collaboration de la mairie.</p>
   </div>
 </footer>
@@ -486,7 +546,9 @@
     // Exemple de quartier : { nom: 'Quartier X', population: '1 200', chef: 'Nom du chef', equipements: 'École, forage' }
     quartiers: ['Bababé','Bambara','Birondigui','Centre','Diaobé','Djéré','Khasso','Kolongha','Koto'].map(function(n){return {nom:n,population:null,chef:null,equipements:null};}),
     // Exemple : { nom: 'Quartier X', habitants: 1200 }
-    population: []
+    population: [],
+    // Exemple : { date: '15 octobre 2026', titre: 'Titre de l\'actualité', texte: 'Texte de l\'actualité' }
+    actualites: []
   };
 
 
@@ -505,6 +567,16 @@
     var v = (c.valeur === null || c.valeur === undefined) ? '—' : esc(c.valeur);
     return '<div class="chiffre"><strong>' + v + '</strong><span>' + esc(c.label) + '</span></div>';
   }).join('');
+
+  // Actualités
+  (function () {
+    var a = DONNEES.actualites;
+    document.getElementById('actus').innerHTML = (!a || a.length === 0)
+      ? '<p class="note">Les actualités de la commune seront publiées ici.</p>'
+      : a.map(function (x) {
+          return '<article class="actu"><time>' + esc(x.date || '') + '</time><h3>' + esc(x.titre) + '</h3><p>' + esc(x.texte || '') + '</p></article>';
+        }).join('');
+  })();
 
   // Démographie
   (function () {
@@ -533,6 +605,15 @@
           return r ? '<dl class="fiche">' + r + '</dl>' : '<p class="note">La fiche de ce quartier sera publiée prochainement.</p>';
         })() + '</div></details>';
     }).join('');
+  })();
+  // Apparition douce des blocs au défilement
+  (function () {
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var els = document.querySelectorAll('.section .wrap > *');
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } });
+    }, { threshold: 0.08 });
+    els.forEach(function (e) { e.classList.add('rv'); io.observe(e); });
   })();
 </script>
 </body>
