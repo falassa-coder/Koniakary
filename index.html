@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Commune de Koniakary</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230E5A43'/%3E%3Ccircle cx='32' cy='32' r='27' fill='none' stroke='%23D9900A' stroke-width='3'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia,serif' font-weight='800' font-size='34' fill='%23ffffff'%3EK%3C/text%3E%3C/svg%3E">
 <meta name="description" content="Site d'information de la commune de Koniakary : histoire, patrimoine, réalisations, économie, quartiers et contact de la mairie.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -202,6 +203,7 @@
   details.quartier[open] summary::after { content: "\2212"; }
   details.quartier .corps { padding: 0 1rem 1rem; }
   details.quartier dl.fiche { padding: 0; }
+  .quartier.simple { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: .8rem 1rem; font-weight: 600; border-left: 3px solid var(--accent); }
 
   /* Réalisations */
   .groupe { display: grid; gap: 1rem 2.5rem; padding: 2.25rem 0; border-top: 1px solid var(--line); }
@@ -304,7 +306,7 @@
     <div class="wrap">
       <span class="surtitre">Cercle de Kayes · Mali</span>
       <h1>Koniakary</h1>
-      <p class="lead">Plus de 300 ans d'histoire, le tata d'El Hadj Oumar Tall, neuf quartiers et une commune qui avance. Toute l'information municipale, au même endroit.</p>
+      <p class="lead">Près de 300 ans d'histoire, le tata d'El Hadj Oumar Tall, neuf quartiers et une commune qui avance. Toute l'information municipale, au même endroit.</p>
       <div class="actions">
         <a class="btn" href="#realisations">Voir les réalisations</a>
         <a class="btn ligne" href="#contact">Contacter la mairie</a>
@@ -335,8 +337,8 @@
     <div class="wrap commune">
       <div>
         <span class="eyebrow">La commune</span>
-        <h2>Une histoire de plus de 300 ans</h2>
-        <p>Ancien bourg colonial, Koniakary a plus de 300 ans. Selon la tradition orale, la première habitante fut Kounié Bidanessy, une femme soninké venue du Ouagadou avec son troupeau de chèvres. Les visiteurs disaient « n'ga daga Kounié kara », « je vais chez Kounié », d'où le nom de Koniakary. Un chasseur khassonké, Demba Séga Diallo, s'est ensuite installé auprès d'elle.</p>
+        <h2>Près de 300 ans d'histoire</h2>
+        <p>Ancien bourg colonial, Koniakary a été fondée vers 1743, il y a près de 300 ans. Selon la tradition orale, la première habitante fut Kounié Bidanessy, une femme soninké venue du Ouagadou avec son troupeau de chèvres. Les visiteurs disaient « n'ga daga Kounié kara », « je vais chez Kounié », d'où le nom de Koniakary. Un chasseur khassonké, Demba Séga Diallo, s'est ensuite installé auprès d'elle.</p>
         <ol class="chrono">
           <li><b>1743</b><span>Arrivée de Kounié et de Demba Séga Diallo, puis de nombreux Khassonkés : naissance du quartier Khasso.</span></li>
           <li><b>1750</b><span>Arrivée des Bambara Massassi du Kaarta : naissance du quartier Bambara.</span></li>
@@ -381,11 +383,10 @@
         <span class="gros">20 000+</span>
         <p>habitants (estimation 2020), dont plus de 7 200 contribuables à la TDRL.</p>
         <div id="demo"></div>
-        <p class="note">Sources à citer : recensement général de la population (INSTAT) et registres d'état civil de la mairie.</p>
       </div>
       <div>
         <h3 class="titre">9 quartiers</h3>
-        <p class="note" style="margin-bottom:1.25rem">Koniakary compte officiellement 3 quartiers et 9 dans l'usage. Population, chef et équipements de chacun seront ajoutés.</p>
+        <p class="note" style="margin-bottom:1.25rem">Koniakary compte officiellement 3 quartiers et 9 dans l'usage.</p>
         <div class="quartiers" id="liste-quartiers"></div>
       </div>
     </div>
@@ -541,7 +542,6 @@
     var conteneur = document.getElementById('demo');
     var pop = DONNEES.population;
     if (!pop || pop.length === 0) {
-      conteneur.innerHTML = '<div class="vide">Les chiffres de population par quartier seront affichés ici sous forme de graphique dès réception des données.</div>';
       return;
     }
     var max = Math.max.apply(null, pop.map(function (p) { return p.habitants; }));
@@ -553,9 +553,8 @@
   // Quartiers
   document.getElementById('liste-quartiers').innerHTML = DONNEES.quartiers.map(function (q) {
     var r = row('Population', q.population) + row('Chef de quartier', q.chef) + row('Équipements', q.equipements);
-    return '<details class="quartier"><summary>' + esc(q.nom) + '</summary><div class="corps">' +
-      (r ? '<dl class="fiche">' + r + '</dl>' : '<p class="note" style="margin:0">La fiche de ce quartier sera publiée prochainement.</p>') +
-      '</div></details>';
+    if (!r) return '<div class="quartier simple">' + esc(q.nom) + '</div>';
+    return '<details class="quartier"><summary>' + esc(q.nom) + '</summary><div class="corps"><dl class="fiche">' + r + '</dl></div></details>';
   }).join('');
 
   // Formulaire de contact : ouvre WhatsApp ou les SMS avec le message pré-rempli
